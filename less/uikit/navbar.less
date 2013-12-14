@@ -1,0 +1,68 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/*
+ * Navbar component
+ *
+ ========================================================================== */
+
+
+/* Component
+ ========================================================================== */
+
+.hook-navbar() {}
+
+/* Sub-object: `uk-navbar-nav`
+ ========================================================================== */
+
+.hook-navbar-nav() { margin: auto; }
+
+/* Hover */ 
+.hook-navbar-nav-hover() {}
+
+ul.uk-navbar-nav > li:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: @theme_navbar-nav-hover-color;
+    opacity: 0;
+    -webkit-transition: height 0.5s, opacity 0.5s, -webkit-transform 0.5s;
+    -moz-transition: height 0.5s, opacity 0.5s, -moz-transform 0.5s;
+    transition: height 0.5s, opacity 0.5s, transform 0.5s;
+}
+
+ul.uk-navbar-nav > li:hover:before {
+    height: 8px;
+    background: @theme_navbar-nav-hover-color;
+    opacity: 1;
+}
+
+/* OnClick */  
+.hook-navbar-nav-onclick() {}
+
+/* Active */ 
+.hook-navbar-nav-active() {}
+
+
+/* Sub-objects: `uk-navbar-nav-subtitle`
+ ========================================================================== */
+
+.uk-navbar-nav-subtitle > i + div { margin-left: @theme_navbar-nav-subtitle-left-margin; }
+
+
+/* Sub-object: `uk-navbar-content`
+ ========================================================================== */
+
+.hook-navbar-content() { padding: 0; }
+
+
+/* Sub-object: `uk-navbar-brand`
+ ========================================================================== */
+
+.uk-navbar-brand {
+    font-weight: normal;
+    line-height: @navbar-nav-height;
+    padding: 0;
+}

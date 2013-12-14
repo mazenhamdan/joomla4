@@ -1,0 +1,57 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/*
+ * Form component
+ *
+ ========================================================================== */
+
+
+/* Component
+ ========================================================================== */
+
+.hook-form() {
+    
+    padding: 8px 10px;
+    font-weight: @theme_form-font-weight;
+
+    .uk-search-field:focus { border: 3px solid @theme_global-secondary-background; }
+
+}
+
+/* Focus state */
+.hook-form-focus() {}
+
+/* Disabled state */
+.hook-form-disabled() {}
+
+
+/* Validation states
+ ========================================================================== */
+
+/*
+ * Error state
+ */
+
+.hook-form-danger() {}
+
+/*
+ * Success state
+ */
+ 
+.hook-form-success() {}
+
+
+/* Size modifiers
+ * Using !important to keep the selector simple
+ ========================================================================== */
+
+.uk-form-small { padding: 4px 6px !important; }
+
+.uk-form-large { padding: 14px 16px !important; }
+
+
+/* Modifier: `uk-form-stacked`
+ * Requrires sub-object: `uk-form-label`
+ ========================================================================== */
+
+.uk-form-stacked .uk-form-label { font-weight: @theme_form-label-font-weight; }

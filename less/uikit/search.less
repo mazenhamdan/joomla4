@@ -1,0 +1,39 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/*
+ * Search component
+ *
+ ========================================================================== */
+
+
+/* Component
+ ========================================================================== */
+
+.hook-search() {}
+
+.hook-search-icon() { padding: 0 0; }
+
+/* Sub-object `uk-search-field`
+ ========================================================================== */
+
+.hook-search-field() {
+    position: relative;
+    padding: 0;
+    border: none;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.hook-search-field-focus() { border: none; }
+
+.uk-search-field:focus,
+.uk-active .uk-search-field {
+    padding: 0 @search-padding;
+    cursor: text;
+}
+
+
+/* Sub-object `uk-search-close`
+ ========================================================================== */
+
+.hook-search-close() { z-index: 2; }

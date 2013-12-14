@@ -1,0 +1,82 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/*
+ * Dropdown component
+ *
+ ========================================================================== */
+
+
+/* Component
+ ========================================================================== */
+
+.hook-dropdown() {}
+
+/* Dependencies `uk-nav-dropdown`
+ ========================================================================== */
+
+.uk-dropdown .uk-nav { padding: 0 @dropdown-padding; }
+
+
+/* Modifier: `uk-dropdown-navbar`
+ ========================================================================== */
+
+.tm-slant-bottom .uk-dropdown-navbar { padding-top: @theme_dropdown-navbar-top-slant-padding; }
+
+.hook-dropdown-navbar() {
+    padding-top: @theme_dropdown-navbar-top-padding;
+    
+    a { color: @theme_dropdown-navbar-link-color; }
+    a:hover { color: @theme_dropdown-navbar-hover-link-color; }
+
+        
+        ul.uk-nav-sub {
+
+            > li > a  {
+                border-left: 1px solid @theme_dropdown-navbar-nav-sub-border-color;
+
+                &:hover { border-left: 1px solid @theme_dropdown-navbar-nav-sub-hover-border-color; }
+            }
+
+            > li > ul {
+                padding: 0 10px;
+                border-left: 1px solid @theme_dropdown-navbar-nav-sub-border-color;
+            }
+
+            > li > ul > li > a {
+                border-left: 1px solid @theme_dropdown-navbar-nav-sub-border-color;
+
+                &:hover { border-left: 1px solid @theme_dropdown-navbar-nav-sub-hover-border-color; }
+            }
+        }
+
+    .hook-form() { color: @global-contrast-color; }
+}
+
+
+
+/* Modifier: `uk-dropdown-search`
+ ========================================================================== */
+
+.hook-dropdown-search() { margin-top: @dropdown-margin-top + 3px; }
+
+.uk-dropdown-navbar .uk-nav {
+
+    li > a {
+        color: @theme_dropdown-navbar-nav-color;
+        -webkit-transition: all ease-out 0.3s;
+        transition: all ease-out 0.3s;
+    }
+
+    > li > a:hover { background: @theme_dropdown-navbar-nav-hover-background; }
+
+    li.uk-active > a { background: @theme_dropdown-navbar-nav-active-background; }
+
+    .uk-nav-sub > li:hover > a { background: transparent; }
+
+    .uk-nav-sub li > a:hover { color: @theme_dropdown-navbar-nav-sub-hover-color; }
+
+    .uk-nav-header { color: @theme_dropdown-navbar-nav-header-color; }
+
+    .uk-nav-divider { border-color: @theme_dropdown-navbar-nav-divider-color; }
+
+}
