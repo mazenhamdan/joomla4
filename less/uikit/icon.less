@@ -1,0 +1,30 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/*
+ * Icon component
+ *
+ ========================================================================== */
+
+
+/* Component
+ ========================================================================== */
+
+
+/* Modifier: `uk-icon-button`
+ ========================================================================== */
+
+.hook-icon-button() {
+    -webkit-transition: -webkit-transform ease-in-out 0.2s;
+    transition: transform ease-in-out 0.2s;
+}
+
+.uk-icon-button + .uk-icon-button { margin-left: 5px; }
+
+/* Hover */
+.hook-icon-button-hover() {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+/* Active */
+.hook-icon-button-active() {}

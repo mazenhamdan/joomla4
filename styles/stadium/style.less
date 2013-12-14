@@ -1,0 +1,53 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+@import 'https://fonts.googleapis.com/css?family=Coda:400,300';
+@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300';
+
+/* theme: Capture */
+
+
+/*
+ * Backgrounds
+ */
+
+@theme_global-parallax-image:                   'stadium';
+@global-primary-background:                     #1265b8;
+@theme_global-secondary-background:             #b71b1e;
+@theme_global-dark-background:                  #3b3b3b;
+@theme_global-light-background:                 #f1f1f1;
+@global-success-background:                     #76c11a;
+@global-warning-background:                     #f69000;
+@global-danger-background:                      #e10d2d;
+
+/*
+ * Base
+ */
+
+@base-heading-font-family:                      'Coda';
+
+/*
+ * Typography
+ */
+
+@global-color:                                  #777777;
+@global-link-color:                             #1265b8;
+@global-link-hover-color:                       #b71b1e;
+
+/*
+ * Nav
+ */
+
+@nav-offcanvas-hover-background:                @theme_global-secondary-background;
+@theme_nav-offcanvas-nav-sub-background:        darken(desaturate(@theme_global-secondary-background, 70%), 15%);
+
+/*
+ * Modal
+ */
+
+@modal-background:                              fade(darken(@global-primary-background, 40%), 70%);
+
+/*
+ * Offcanvas
+ */
+
+@offcanvas-bar-background:                      darken(desaturate(@theme_global-secondary-background, 70%), 10%);

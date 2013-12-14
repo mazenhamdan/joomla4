@@ -1,0 +1,48 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/*
+ * Tab component
+ *
+ ========================================================================== */
+
+
+/* Component
+ ========================================================================== */
+
+/*
+ * Items
+ */
+
+.hook-tab() {}
+
+.uk-tab > li:nth-child(n+2) > a { margin-left: 0px; }
+
+
+/* Modifier: 'tab-flip'
+ ========================================================================== */
+
+.uk-tab-flip > li:nth-child(n+2) > a { margin-right: 0px; }
+
+
+/* Modifier: 'tab-left', 'tab-right'
+ ========================================================================== */
+
+/* Only tablets and desktops */
+@media (min-width: @breakpoint-medium) {
+
+	.uk-tab-left > li:nth-child(n+2) > a,
+	.uk-tab-right > li:nth-child(n+2) > a { margin-top: 0;}
+
+	.uk-tab-left > li.uk-active > a,
+	.uk-tab-right > li.uk-active > a { border-color: @tab-active-border; }
+
+}
+
+/* Hover */
+.hook-tab-hover() {}
+
+/* Active */
+.hook-tab-active() {}
+
+/* Disabled */
+.hook-tab-disabled() {}

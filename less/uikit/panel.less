@@ -1,0 +1,138 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/*
+ * Panel component
+ *
+ ========================================================================== */
+
+
+/* Component
+ ========================================================================== */
+
+
+/* Sub-object: `uk-panel-title`
+ ========================================================================== */
+
+.hook-panel-title() {}
+
+.uk-panel:after,
+.uk-panel:before { display: block; }
+
+/* Sub-object: `uk-panel-badge`
+ ========================================================================== */
+
+.hook-panel-badge() {
+    top: 12px;
+    right: 12px;
+}
+
+.uk-panel-box .uk-panel-badge {
+    font-size: (@theme_panel-box-badge-size /5) - 2px;
+    font-weight: @theme_panel-box-badge-font-weight;
+    background: none;
+}
+
+.uk-panel-box .uk-panel-badge:before {
+    content: "";
+    position: absolute;
+    right: -@panel-box-badge-right;
+    top: -@panel-box-badge-top;
+    width: @theme_panel-box-badge-size;
+    height: @theme_panel-box-badge-size;
+    background: linear-gradient(to left bottom, @global-primary-background 48%, @theme_panel-box-badge-box-shadow 2%, transparent 50%);
+    z-index: -1;
+}
+
+
+/* Modifier: `uk-panel-box`
+ ========================================================================== */
+
+.hook-panel-box() { box-shadow: 0 1px 0 @theme_global-box-shadow; }
+
+.uk-panel-box .uk-nav-side { margin: 0; }
+
+/*
+ * Sub-modifier: `uk-panel-box-primary`
+ */
+
+.hook-panel-box-primary() {
+
+    > a:not([class]),
+    > :not([class*='uk-nav']) a:not([class]) { color: @theme_panel-box-primary-link-color; }
+    > a:not([class]):hover,
+    > :not([class*='uk-nav']) a:not([class]):hover { color: @theme_panel-box-primary-hover-link-color; }
+
+    .uk-button-primary {
+
+        background: @theme_global-light-color;
+
+        &:hover { background: lighten(@theme_global-light-color, 10%); }
+        &:active { background: darken(@theme_global-light-color, 10%); }
+
+    }
+
+    .uk-nav > li > a:hover { background: @theme_panel-box-primary-nav-hover-background; }
+    
+}
+
+/*
+ * Sub-object: `uk-nav-header`
+ */
+
+.uk-panel-box-primary .uk-nav-header { color: @theme_panel-box-primary-nav-header-color; }
+
+/*
+ * Items &  Nested items
+ */
+
+.uk-panel-box-primary .uk-nav-side > li > a,
+.uk-panel-box-primary .uk-nav-side ul a {
+
+    color: @theme_panel-box-primary-nav-color;
+
+    /* Hover */
+    &:hover { color: @theme_panel-box-primary-hover-link-color; }
+    &:focus { background: darken(@global-primary-background, 10%); }
+
+}
+
+/* Hover */
+.uk-panel-box-primary .uk-nav-side ul > li > a:hover { color: @theme_panel-box-primary-hover-link-color; }
+
+/* Active */
+.uk-panel-box-primary .uk-nav-side > li.uk-active > a { background: @theme_panel-box-primary-active-background; }
+.uk-panel-box-primary .uk-nav-side > li > a:active,
+.uk-panel-box-primary .uk-nav-side > li.uk-active > a { color: @theme_panel-box-primary-active-color; }
+
+/*
+ * Sub-modifier: `uk-panel-box-secondary`
+ */
+
+.hook-panel-box-secondary() {
+
+    > a:not([class]),
+    > :not([class*='uk-nav']) a:not([class]) { color: @theme_panel-box-secondary-link-color; }
+    > a:not([class]):hover,
+    > :not([class*='uk-nav']) a:not([class]):hover { color: @theme_panel-box-secondary-hover-link-color; }
+    
+    a { color: fade(@global-contrast-color, 70%); }
+    a:hover { color: @global-contrast-color; }
+
+    .uk-button:not(.uk-button-primary):not(.uk-button-success):not(.uk-button-danger) {
+
+        background: lighten(@theme_global-secondary-background, 10%);
+
+        &:hover { background: lighten(@theme_global-secondary-background, 20%); }
+        &:active { background: darken(@theme_global-secondary-background, 10%); }
+
+    }
+
+    .uk-nav > li > a:hover { background: @theme_panel-box-secondary-nav-hover-background; }
+
+}
+
+
+/* Modifier: `uk-panel-header`
+ ========================================================================== */
+
+.hook-panel-header() {}

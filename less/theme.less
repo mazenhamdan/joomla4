@@ -1,0 +1,687 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/*
+ * Name:            Theme layout
+ * Description:     Defines styles for the theme
+ *
+ ========================================================================== */
+
+@import "uikit/uikit.less";
+
+@utility-container-max-width:                   980px;
+@utility-container-large-max-width:             1200px;
+
+@theme_global-parallax-image:                   'default';
+
+
+
+/* Layout
+ ========================================================================== */
+
+body {
+    -webkit-text-stroke: 1px transparent;
+    -webkit-text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility;
+}
+
+.tm-breadcrumb { padding-top: 40px; }
+
+.uk-breadcrumb { margin-bottom: 0; }
+
+footer { 
+    color: @global-contrast-color;
+
+    a:hover { color: @global-contrast-color; }
+
+}
+
+.tm-block-dark + .tm-block .tm-footer {
+    border-top: solid 1px darken(@theme_global-dark-background, 3%);
+}
+
+.tm-totop-scroller:after {
+    content: "\f062";
+    font-family: FontAwesome;
+}
+
+a:hover.tm-totop-scroller:after { color: lighten(@global-primary-background, 30%); }
+
+.uk-navbar-flip .uk-dropdown-search {
+    padding-top: @theme_dropdown-navbar-top-slant-padding;
+}
+
+/* Header
+ ========================================================================== */
+
+.tm-fixed-navbar .tm-toolbar,
+.tm-fixed-navbar .tm-headerbar { position: fixed; z-index: 999; }
+
+.tm-fixed-navbar .tm-toolbar + .tm-headerbar { margin-top: @global-line-height + (2 * 10px); }
+.tm-fixed-navbar .tm-headerbar + .tm-block { padding-top: @navbar-nav-height; }
+
+.tm-fixed-navbar .tm-toolbar + .tm-headerbar + .tm-block { padding-top: @navbar-nav-height + @global-line-height + (2 * 10px); }
+
+.tm-toolbar { padding: 10px 0; }
+
+/* Block
+ ========================================================================== */
+
+.tm-block {
+    position: relative;
+    width: 100%;
+    background: @global-background;
+}
+
+.tm-block > .uk-container > .uk-grid,
+.tm-block > .uk-container > .tm-footer { padding: 40px 0; }
+
+.tm-main-top { margin-bottom: @grid-gutter-vertical; }
+.tm-main-bottom { margin-top: @grid-gutter-vertical; }
+
+@media (min-width: @breakpoint-xlarge) {
+
+    .tm-main-top { margin-bottom: @grid-large-gutter-vertical; }
+    .tm-main-bottom { margin-top: @grid-large-gutter-vertical; }
+
+}
+
+.tm-block-dark {
+
+    background: @theme_global-dark-background;
+
+    h1,h2,h3,h4,h5,h6 {
+        margin-bottom: 30px;
+        color: @global-contrast-color;
+    }
+
+    .text-muted { color: fade(@global-contrast-color, 30%); }
+
+    .uk-form { color: @global-contrast-color; }
+
+    .uk-form input,
+    .uk-form textarea,
+    .uk-form select {
+        padding: 20px;
+        background: fade(@global-contrast-color, 2%);
+        color: @global-contrast-color;
+    }
+
+    .uk-form input:focus,
+    .uk-form textarea:focus,
+    .uk-form select:focus { background: fade(@global-contrast-color, 10%); }
+
+    .uk-form input { height: @global-large-height; }
+
+    .uk-form input:focus,
+    .uk-form textarea:focus { color: lighten(@global-primary-background, 40%); }
+
+    .uk-form :-ms-input-placeholder { color: fade(@global-contrast-color, 20%) !important; }
+    .uk-form ::-moz-placeholder { color: fade(@global-contrast-color, 20%); }
+    .uk-form ::-webkit-input-placeholder { color: fade(@global-contrast-color, 20%); }
+
+}
+
+.tm-block-light {
+
+    background: @theme_global-light-background;
+
+    .uk-panel-box { background: @global-background; }
+    .uk-panel-box-secondary { background: @theme_global-secondary-background; }
+    .uk-panel-box-primary { background: @global-primary-background; }
+    .tm-panel-clear-image {
+        margin: -@panel-box-padding -@panel-box-padding @panel-box-padding -@panel-box-padding;
+        padding: @panel-box-padding;
+        background: @theme_global-secondary-background;
+    }
+
+}
+
+
+/* Slant
+ ========================================================================== */
+
+.tm-slant-bottom + .tm-block { padding-top: @theme_global-slant-padding; }
+.tm-slant-bottom + .tm-slant-top { padding-top: 0; }
+
+.tm-slant-bottom > .tm-slant-block-bottom {
+    position: absolute;
+    right: 0;
+    bottom: -60px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-width: 60px 2000px 0 0;
+    border-style: solid dashed solid solid;
+    border-color: @global-background transparent transparent transparent;
+    z-index: 1;
+}
+
+.tm-slant-top + .tm-block > .tm-slant-block-top {
+    position: absolute;
+    top: -60px;
+    right: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-width: 60px 2000px 0 0;
+    border-style: solid solid solid dashed;
+    border-color: transparent @global-background transparent transparent;
+}
+
+.tm-block-light > .tm-slant-block-bottom { border-color: @theme_global-light-background transparent transparent transparent; }
+.tm-slant-top + .tm-block-light > .tm-slant-block-top { border-color: transparent @theme_global-light-background transparent transparent; }
+.tm-slant-top + .tm-block-dark > .tm-slant-block-top { border-color: transparent @theme_global-dark-background transparent transparent; }
+
+/* Blog article
+ ========================================================================== */
+
+.tm-article-blog {
+    
+    .tm-featured-image {
+        display: block;
+        margin:-35px -35px 35px -35px;
+    }
+
+    .uk-article {
+        padding: 35px;
+        background: @global-background;
+        box-shadow: 0px 0px 1px fade(@theme_global-box-shadow, 20%);
+    }
+
+}
+
+.tm-article-author,
+.tm-article-date,
+.tm-article-category { 
+    display: inline-block; 
+    font-size: 14px; 
+    color: fade(@global-muted-color, 80%);
+
+    a {
+        color: fade(@global-muted-color, 80%);
+        text-decoration: underline;
+    }
+    a:hover { color: @global-primary-background; }
+}
+
+.tm-article-author:before,
+.tm-article-date:before,
+.tm-article-category:before {
+    display: inline-block;
+    margin-right: 7px; 
+    vertical-align: baseline;
+    line-height: 1;
+    font-weight: normal;
+    font-style: normal;
+    font-family: "FontAwesome";
+    -webkit-font-smoothing: antialiased;
+}
+
+.tm-article-author:before { content: "\f007"; }
+.tm-article-date:before { content: "\f073"; }
+.tm-article-category:before { content: "\f02b"; }
+
+.tm-article-author + .tm-article-date,
+.tm-article-author + .tm-article-date + .tm-article-category { margin-left: 10px; }
+
+
+/* Widgetkit Slideset
+ ========================================================================== */
+
+.wk-slideset-capture  .wk-content a:after {
+    background: fade(@theme_global-dark-background, 70%);
+    color: @global-contrast-color;
+    font-family: Source Sans Pro;
+}
+
+.tm-block .wk-slideset-capture .wk-content a:before {
+    background-image: -webkit-linear-gradient(315deg, @global-background 50%, rgba(255,255,255,0) 50%);
+    background-image: linear-gradient(135deg, @global-background 50%, rgba(255,255,255,0) 50%);
+}
+
+.tm-block-light .wk-slideset-capture .wk-content a:before {
+    background-image: -webkit-linear-gradient(315deg, @theme_global-light-background 50%, rgba(255,255,255,0) 50%);
+    background-image: linear-gradient(135deg, @theme_global-light-background 50%, rgba(255,255,255,0) 50%);
+}
+
+.tm-block-dark .wk-slideset-capture .wk-content a:before {
+    background-image: -webkit-linear-gradient(315deg, @theme_global-dark-background 50%, rgba(255,255,255,0) 50%);
+    background-image: linear-gradient(135deg, @theme_global-dark-background 50%, rgba(255,255,255,0) 50%);
+}
+
+
+/* Parallax
+ ========================================================================== */
+
+.top-parallax,
+.bottom-parallax {
+    min-height: 70px;
+    background: @theme_global-secondary-background;
+}
+
+#parallax-top-image,
+#parallax-bottom-image {
+    position: relative;
+    width: 100%;
+    height: 750px;
+    background-position: 50% 0;
+    background-size: cover;
+    overflow: hidden;
+}
+
+#parallax-top-image {
+    max-height: 1000px;
+    background-image: url(../images/parallax/@{theme_global-parallax-image}/parallax-top.jpg);
+}
+
+#parallax-bottom-image {
+    max-height: 600px;
+    background-image: url(../images/parallax/@{theme_global-parallax-image}/parallax-bottom.jpg);
+}
+
+.parallax-style ();
+
+/*
+ * City
+ */
+
+.parallax-style () when (@theme_global-parallax-image = 'city') {
+
+    #parallax-top-image {
+
+        background: url(../images/parallax/city/parallax-top.jpg) 50% 50% no-repeat fixed;
+        background: 
+            url(../images/parallax/city/city-pattern.png) repeat,
+            url(../images/parallax/city/parallax-top.jpg) no-repeat,
+            #fff;
+        background-position: 0 0, 50% 0;
+        background-size: auto, cover;
+    }
+
+    #parallax-bottom-image { 
+        
+        background: url(../images/parallax/city/parallax-bottom.jpg) 50% 50% no-repeat fixed;
+        background: 
+            url(../images/parallax/city/city-pattern.png) repeat,
+            url(../images/parallax/city/parallax-bottom.jpg) no-repeat,
+            #fff;
+        background-position: 0 0, 50% 0;
+        background-size: auto, cover;
+    }
+
+}
+
+/*
+ * Fashion
+ */
+
+.parallax-style () when (@theme_global-parallax-image = 'fashion') {
+
+    #parallax-top-image {
+
+        background: url(../images/parallax/fashion/parallax-top.jpg) 50% 50% no-repeat fixed;
+        background: 
+            url(../images/parallax/fashion/fashion-pattern.png) repeat,
+            url(../images/parallax/fashion/parallax-top.jpg) no-repeat,
+            #fff;
+        background-position: 0 0, 50% 0;
+        background-size: auto, cover;
+    }
+
+    #parallax-bottom-image { 
+        
+        background: url(../images/parallax/fashion/parallax-bottom.jpg) 50% 50% no-repeat fixed;
+        background: 
+            url(../images/parallax/fashion/fashion-pattern.png) repeat,
+            url(../images/parallax/fashion/parallax-bottom.jpg) no-repeat,
+            #fff;
+        background-position: 0 0, 50% 0;
+        background-size: auto, cover;
+    }
+
+}
+
+/*
+ * Trekking
+ */
+
+.parallax-style () when (@theme_global-parallax-image = 'trekking') {
+
+    #parallax-top-image {
+
+        background: url(../images/parallax/trekking/parallax-top.jpg) 50% 50% no-repeat fixed;
+        background: 
+            url(../images/parallax/trekking/trekking-pattern.png) repeat,
+            url(../images/parallax/trekking/parallax-top.jpg) no-repeat,
+            #fff;
+        background-position: 0 0, 50% 0;
+        background-size: auto, cover;
+    }
+
+    #parallax-bottom-image { 
+        
+        background: url(../images/parallax/trekking/parallax-bottom.jpg) 50% 50% no-repeat fixed;
+        background: 
+            url(../images/parallax/trekking/trekking-pattern.png) repeat,
+            url(../images/parallax/trekking/parallax-bottom.jpg) no-repeat,
+            #fff;
+        background-position: 0 0, 50% 0;
+        background-size: auto, cover;
+    }
+
+}
+
+/*
+ * Volcano
+ */
+
+.parallax-style () when (@theme_global-parallax-image = 'volcano') {
+
+    #parallax-top-image {
+
+        background: url(../images/parallax/volcano/parallax-top.jpg) 50% 50% no-repeat fixed;
+        background: 
+            url(../images/parallax/volcano/volcano-pattern.png) repeat,
+            url(../images/parallax/volcano/parallax-top.jpg) no-repeat,
+            #fff;
+        background-position: 0 0, 50% 0;
+        background-size: auto, cover;
+    }
+
+    #parallax-bottom-image { 
+        
+        background: url(../images/parallax/volcano/parallax-bottom.jpg) 50% 50% no-repeat fixed;
+        background: 
+            url(../images/parallax/volcano/volcano-pattern.png) repeat,
+            url(../images/parallax/volcano/parallax-bottom.jpg) no-repeat,
+            #fff;
+        background-position: 0 0, 50% 0;
+        background-size: auto, cover;
+    }
+
+}
+
+/*
+ * Stadium
+ */
+
+.parallax-style () when (@theme_global-parallax-image = 'stadium') {
+
+    #parallax-top-image {
+
+        background: url(../images/parallax/stadium/parallax-top.jpg) 50% 50% no-repeat fixed;
+        background: 
+            url(../images/parallax/stadium/stadium-pattern.png) repeat,
+            url(../images/parallax/stadium/parallax-top.jpg) no-repeat,
+            #fff;
+        background-position: 0 0, 50% 0;
+        background-size: auto, cover;
+    }
+
+    #parallax-bottom-image { 
+        
+        background: url(../images/parallax/stadium/parallax-bottom.jpg) 50% 50% no-repeat fixed;
+        background: 
+            url(../images/parallax/stadium/stadium-pattern.png) repeat,
+            url(../images/parallax/stadium/parallax-bottom.jpg) no-repeat,
+            #fff;
+        background-position: 0 0, 50% 0;
+        background-size: auto, cover;
+    }
+
+}
+#yt-like{
+  position: absolute;
+  top: 0px;
+  left: -5500px;
+  }
+/* Parallax Content
+ ========================================================================== */
+
+.tm-parallax-teaser {
+    position: relative;
+    top: 50%;
+    margin-top: -70px;
+    max-width: 600px;
+    left: 50%;
+    margin-left: -300px;
+}
+
+.tm-parallax-teaser h2 {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: @global-primary-background;
+    color: @global-contrast-color;
+}
+
+.tm-parallax-teaser-container {
+    position: relative;
+    left: 50%;
+    width: 700px;
+    margin-left: -350px;
+    text-align: center;
+}
+
+.tm-parallax-teaser-images-top {
+    margin-bottom: 50px;
+    -webkit-animation: Parallax-ScaleUpTop;
+    animation: Parallax-ScaleUpTop;
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+}
+.tm-parallax-teaser-images-bottom {
+    margin-top: 50px;
+    -webkit-animation: Parallax-ScaleUpBottom;
+    animation: Parallax-ScaleUpBottom;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+}
+
+.tm-parallax-teaser-images-top > img.uk-float-right {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.tm-parallax-teaser-images-bottom > img.uk-float-right {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.tm-parallax-teaser-images-bottom > img.uk-float-left {
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.tm-parallax-teaser-headline {
+    display: inline-block;
+    padding: 5px 10px;
+    background: fade(@global-primary-background, 70%);
+    color: @global-contrast-color;
+    line-height: 65px;
+    font-weight: bold;
+    font-size: 65px;
+    -webkit-animation: Parallax-FadeIn;
+    animation: Parallax-FadeIn;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-timing-function: ease;
+    animation-timing-function: ease;
+}
+
+.tm-parallax-teaser-caption {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 5px 10px;
+    background: fade(#000, 70%);
+    color: @global-contrast-color;
+    line-height: 25px;
+    font-size:25px;
+    -webkit-animation: Parallax-FadeIn;
+    animation: Parallax-FadeIn;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-timing-function: ease;
+    animation-timing-function: ease;
+}
+
+@-webkit-keyframes Parallax-FadeIn { 
+    0% { opacity: 0; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes Parallax-FadeIn { 
+    0% { opacity: 0; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@-webkit-keyframes Parallax-ScaleUpTop { 
+    0% { margin: 0 0 0 0; }
+    100% { margin: 0 0 50px 0; }
+}
+
+@keyframes Parallax-ScaleUpTop { 
+    0% { margin: 0 0 0 0; }
+    100% { margin: 0 0 50px 0; }
+}
+
+@-webkit-keyframes Parallax-ScaleUpBottom { 
+    0% { margin: 0 0 0 0; }
+    100% { margin: 50px 0 0 0; }
+}
+
+@keyframes Parallax-ScaleUpBottom { 
+    0% { margin: 0 0 0 0; }
+    100% { margin: 50px 0 0 0; }
+}
+
+
+/* Responsive
+ ========================================================================== */
+
+@media (max-width: @breakpoint-xlarge) {
+
+    .uk-navbar-nav > li > a {
+        padding: 0 10px;
+        font-size: 18px;
+    }
+
+    .tm-parallax-teaser-container {
+        position: relative;
+        left: 50%;
+        width: 500px;
+        margin-left: -250px;
+        text-align: center;
+    }
+
+    .tm-parallax-teaser-images-top { margin-bottom: 30px; }
+    .tm-parallax-teaser-images-bottom { margin-top: 30px; }
+
+    .tm-parallax-teaser-headline {
+        padding: 5px 10px;
+        line-height: 50px;
+        font-weight: bold;
+        font-size: 50px;
+    }
+
+
+    .tm-parallax-teaser-caption {
+        margin-top: 5px;
+        padding: 5px 10px;
+        line-height: 20px;
+        font-size:20px;
+        }
+
+    @-webkit-keyframes Parallax-ScaleUpTop { 
+        0% { margin: 0 0 0 0; }
+        100% { margin: 0 0 30px 0; }
+    }
+
+    @keyframes Parallax-ScaleUpTop { 
+        0% { margin: 0 0 0 0; }
+        100% { margin: 0 0 30px 0; }
+    }
+
+    @-webkit-keyframes Parallax-ScaleUpBottom { 
+        0% { margin: 0 0 0 0; }
+        100% { margin: 30px 0 0 0; }
+    }
+
+    @keyframes Parallax-ScaleUpBottom { 
+        0% { margin: 0 0 0 0; }
+        100% { margin: 30px 0 0 0; }
+    } 
+
+}
+
+@media (max-width: @breakpoint-large) {
+
+    .tm-parallax-sequence,
+    .tm-parallax-teaser { display: none; }
+
+    .tm-parallax-teaser-container {
+        position: relative;
+        left: 50%;
+        width: 400px;
+        margin-left: -200px;
+        text-align: center;
+    }
+
+    .tm-parallax-teaser-images-top { margin-bottom: 20px; }
+    .tm-parallax-teaser-images-bottom { margin-top: 20px; }
+
+    .tm-parallax-teaser-headline {
+        padding: 2px 8px;
+        line-height: 30px;
+        font-weight: bold;
+        font-size: 30px;
+    }
+
+
+    .tm-parallax-teaser-caption {
+        margin-top: 3px;
+        padding: 1px 6px;
+        line-height: 16px;
+        font-size: 16px;
+        }
+
+    @-webkit-keyframes Parallax-ScaleUpTop { 
+        0% { margin: 0 0 0 0; }
+        100% { margin: 0 0 20px 0; }
+    }
+
+    @keyframes Parallax-ScaleUpTop { 
+        0% { margin: 0 0 0 0; }
+        100% { margin: 0 0 20px 0; }
+    }
+
+    @-webkit-keyframes Parallax-ScaleUpBottom { 
+        0% { margin: 0 0 0 0; }
+        100% { margin: 20px 0 0 0; }
+    }
+
+    @keyframes Parallax-ScaleUpBottom { 
+        0% { margin: 0 0 0 0; }
+        100% { margin: 20px 0 0 0; }
+    }
+
+}
+
+
+@media (max-width: @breakpoint-medium) {
+
+    .tm-parallax-teaser-container { display: none; }
+
+}
+
+
+@media (max-width: @breakpoint-small) {
+
+    .tm-slant-block-bottom,
+    .tm-slant-block-top { display: none; }
+
+}

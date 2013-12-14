@@ -1,0 +1,45 @@
+/* Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/*
+ * Base component
+ *
+ ========================================================================== */
+
+
+/* Body
+ ========================================================================== */
+
+.hook-base-body() { -webkit-font-smoothing: antialiased; }
+
+/* Text-level semantics
+ ========================================================================== */
+
+/*
+ * Links
+ */
+
+a {
+    -webkit-transition: color 0.3s ease-in-out;
+    -moz-transition: color 0.3s ease-in-out; 
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover { text-decoration: none; }
+
+
+/* Code and preformatted text
+ ========================================================================== */
+
+.hook-base-code() {
+    background: @theme_base-code-border-background;
+    padding: @theme_base-code-padding;
+    border: 1px solid @theme_base-code-border-color;
+}
+
+.hook-base-code-reset() {
+    background: none;
+    padding: none;
+    border: none;
+}
+
+.hook-base-pre() {}
